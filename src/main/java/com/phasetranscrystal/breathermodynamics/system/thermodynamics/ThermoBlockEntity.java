@@ -1,9 +1,9 @@
 package com.phasetranscrystal.breathermodynamics.system.thermodynamics;
 
-import com.phasetranscrystal.material.helper.MathHelper;
+import com.phasetranscrystal.metal.NewRegistries;
+import com.phasetranscrystal.metal.helper.MathHelper;
 import com.phasetranscrystal.breathermodynamics.module.blockentity.ITickable;
-import com.phasetranscrystal.material.system.material.Material;
-import com.phasetranscrystal.material.system.material.Registry$Material;
+import com.phasetranscrystal.metal.material.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -59,7 +59,7 @@ public abstract class ThermoBlockEntity extends BlockEntity implements IThermoMa
     public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
         q = pTag.getFloat("thermo_temperature") * getMC();
-        material = Registry$Material.MATERIAL.get(ResourceLocation.parse(pTag.getString("material")));
+        material = NewRegistries.MATERIAL.get(ResourceLocation.parse(pTag.getString("material")));
     }
 
     @Override
